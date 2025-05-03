@@ -1,0 +1,50 @@
+@baseUrl = http://localhost:3000
+
+# @name UsersController
+###
+GET {{baseUrl}}/users
+###
+GET {{baseUrl}}/users/2
+###
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "aa@a.com"
+}
+###
+PUT {{baseUrl}}/users/2
+Content-Type: application/json
+
+{
+  "name": "Teste do pedro",
+  "email": "a@a.com"
+}
+###
+DELETE {{baseUrl}}/users/4
+
+# @name MessagesController
+###
+GET {{baseUrl}}/messages
+###
+GET {{baseUrl}}/messages/2
+###
+POST {{baseUrl}}/messages
+Content-Type: application/json
+
+{
+  "sender_id": 4,
+  "receiver_id": 2,
+  "content": "Hello, how are you?"
+}
+###
+PUT {{baseUrl}}/messages/3
+Content-Type: application/json
+
+{
+  "sender_id": 4,
+  "content": "test"
+}
+###
+DELETE {{baseUrl}}/users/1
