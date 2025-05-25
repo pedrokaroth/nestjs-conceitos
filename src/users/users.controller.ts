@@ -7,18 +7,20 @@ import {
   ParseIntPipe,
   Post,
   Put,
+  Query,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-users.dto';
 import { UpdateUserDto } from './dto/update-users.dto';
+import { PaginationDto } from 'src/common/dto/Pagination.dto';
 
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Get()
-  find(): any {
-    return this.usersService.findAll();
+  find(@Query() paginationDto: PaginationDto): any {
+    return this.usersService.findAll(paginationDto);
   }
 
   @Get(':id')
